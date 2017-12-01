@@ -16,6 +16,6 @@ class TestRoom < MiniTest::Test
   end
 
   def test_room_has_a_room_number()
-  assert_equal(3, @room.room_number)
-end
+    assert_equal(3, @room.room_number)
+  end
 end

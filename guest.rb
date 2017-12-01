@@ -8,4 +8,5 @@ class Guest
     @age = age
   end
 
+
 end
