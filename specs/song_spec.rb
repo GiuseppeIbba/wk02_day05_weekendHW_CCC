@@ -3,4 +3,8 @@ require("minitest/rg")
 require_relative("../song.rb")
 
 class TestSong < MiniTest::Test
+
+  def setup
+     @song = Song.new("Thunderstruck", "AC-DC")
+end
 end
