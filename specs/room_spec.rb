@@ -8,10 +8,11 @@ class TestRoom < MiniTest::Test
 
   def setup
     @song = Song.new("Blackened", "Metallica")
+    playllist = []
     @guest1 = Guest.new("Stewie", "Wonder", 26)
     guests = ["Phil", "Craig", "Mike"]
     @room1 = Room.new("Classic", [], [])
-    @room = Room.new("Rock", guests, [])
+    @room = Room.new("Rock", guests, playlist)
   end
 
 
@@ -20,7 +21,7 @@ class TestRoom < MiniTest::Test
   end
 
   def test_room_has_songs()
-    assert_equal(0, @room.songs.length())
+    assert_equal(0, @room.playlist.length())
   end
 
   def test_room_has_guests()
@@ -42,6 +43,27 @@ class TestRoom < MiniTest::Test
     @room.guest_out(check_out_guest)
     assert_equal(["Craig", "Mike"], @room.guests())
   end
+
+
+  # def test_can_add_song()
+  #   @playlist.add_song("Blackened", "Metallica")
+  #   assert_equal({title: "Blackened", author: "Metallica"}, @playlilst.find_song("Blackened", "Metallica"))
+  #   all_songs = @playlist.songs()
+  #   assert_equal(1, all_songs.size())
+  # end
+
+
+
+
+
+  #
+  #
+  #   @library.add_book("1984")
+  #   assert_equal({ title: "1984", rental_details: { student_name: "", date: ""} }, @library.find_book("1984"))
+  #   all_books = @library.books()
+  #   assert_equal(3, all_books.count())
+  # end
+
 
 
   # def test_room_is_available()

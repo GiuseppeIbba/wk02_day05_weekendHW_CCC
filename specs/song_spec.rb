@@ -2,20 +2,34 @@ require("minitest/autorun")
 require("minitest/rg")
 require_relative("../song.rb")
 
-class TestSong < MiniTest::Test
+class TestPlaylist < MiniTest::Test
 
   def setup
-     @song = Song.new("Thunderstruck", "AC-DC")
+
+  songs = [
+      {
+        title: "Kashmir",
+        artist: "Led Zeppelin"
+      },
+      {
+        title: "No one knows",
+        artist: "Queens of the stone age"
+      }
+    ]
+
+
+  @playlist = Playlist.new(songs)
+  end
+
+
+def test_playlist_has_songs()
+assert_equal([{title: "Kashmir", artist: "Led Zeppelin"}, {title: "No one knows", artist: "Queens of the stone age"}], @playlist.songs())
 end
 
 
 
 
-def test_song_has_a_title()
-  assert_equal("Thunderstruck", @song.title)
-end
 
-def test_song_has_an_author()
-  assert_equal("AC-DC", @song.author)
-end
+
+
 end
