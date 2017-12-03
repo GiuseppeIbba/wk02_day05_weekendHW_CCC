@@ -1,15 +1,26 @@
 class Room
 
-  attr_reader :genre, :guests
+  attr_reader :genre, :guests, :songs
 
-  def initialize(genre, guests)
+  def initialize(genre, guests, songs)
 
     @genre = genre
     @guests = guests
+    @songs = songs
 
   end
 
+  def guest_in(check_in_guest)
+    @guests << check_in_guest
+  end
 
+  def guest_out(check_out_guest)
+    @guests.delete(check_out_guest)
+  end
+
+
+
+end
 
 
   #
@@ -34,5 +45,3 @@ class Room
   # end
   #
   #
-
-end
