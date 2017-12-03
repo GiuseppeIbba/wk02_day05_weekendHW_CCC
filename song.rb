@@ -1,13 +1,19 @@
 class Playlist
 
   attr_reader :songs
-
   def initialize(songs)
 
     @songs = songs || []
   end
 
-  #
+
+  def find_by_title(title)
+    songs.select {|song| song[:title] == title}
+  end
+
+  def find_by_artist(artist)
+    songs.select {|song| song[:artist] == artist}
+  end
   # def add_song(title, author)
   #  selected_songs = {
   #    title: "Blackened", author: "Metallica"

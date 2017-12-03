@@ -2,11 +2,11 @@ class Room
 
   attr_reader :genre, :guests, :songs
 
-  def initialize(genre, guests, playlist)
+  def initialize(genre, guests, songs)
 
     @genre = genre
     @guests = guests
-    @playlist = playlist
+    @songs = songs
 
   end
 
