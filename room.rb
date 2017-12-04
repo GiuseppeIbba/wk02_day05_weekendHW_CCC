@@ -7,9 +7,28 @@ class Room
     @genre = genre
     @guests = guests || []
     @playlist = playlist || []
-
-
   end
+
+  def available()
+    if @guests.length == nil
+    end
+  end
+
+
+  def guest_in(check_in_guest)
+    @guests << check_in_guest
+  end
+
+
+
+
+
+
+
+
+
+
+
   #
   # def guest_in(check_in_guest)
   #   @guests << check_in_guest
@@ -29,11 +48,7 @@ end
   # @room_guests << guest
   # end
   #
-  # def available()
-  #   if .room_guests.size = 0
-  #     return true
-  #   end
-  # end
+
   #
   # def room_guests()
   # @room.room_guests

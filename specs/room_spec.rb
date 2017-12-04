@@ -12,19 +12,24 @@ class TestRoom < MiniTest::Test
       artist: "Blind Guardian"
     })
     @song2 = Song.new({
-      title: "Nightfall",
-      artist: "Blind Guardian"
+      title: "Song 2",
+      artist: "Blur"
     })
     @song3 = Song.new({
       title: "Noldor",
       artist: "Blind Guardian"
     })
-    playlist = [@song1, @song2, @song3]
-    @guest4 = Guest.new({
-      name: "Peter",
-      surname: "Griffin",
-      age: 42
+    @song4 = Song.new({
+      title: "Nightfall",
+      artist: "Blind Guardian"
     })
+    @song5 = Song.new({
+      title: "Down with the sickness",
+      artist: "Disturbed"
+    })
+
+    playlist = [@song1, @song2, @song4]
+
     guests = [
       { name: "Hulk",
         surname: "Hogan",
@@ -35,11 +40,22 @@ class TestRoom < MiniTest::Test
       { name: "Randy",
         surname: "Orton",
         age: 29 }]
-      @room = Room.new("Rock", guests, playlist)
+
+
+    @guest4 = Guest.new({
+        name: "Peter",
+        surname: "Griffin",
+        age: 42
+        })
+
+    guests1 = []
+    playlist1 = []
+      @room = Room.new("Epic Metal", guests, playlist)
+      @room1 = Room.new("Pop", guests1, playlist1)
   end
 
   def test_room_has_a_name()
-    assert_equal("Rock", @room.genre())
+    assert_equal("Epic Metal", @room.genre())
   end
 
   def test_room_has_guests()
@@ -49,6 +65,20 @@ class TestRoom < MiniTest::Test
   def test_room_has_songs()
       assert_equal(3, @room.playlist.size)
   end
+
+  def test_room_is_available()
+    assert_nil(@room.available)
+  end
+
+  def test_check_in_guest_to_room()
+      check_in_guest = @guest4
+      @room1.guest_in(check_in_guest)
+      assert_equal(1, @room1.guests.size())
+  end
+end
+
+
+
         # def test_room_has_songs()
         #   assert_equal(0, @room.playlist.length())
         # end
@@ -61,11 +91,7 @@ class TestRoom < MiniTest::Test
         #   refute(false, @room1.guests.any?())
         # end
         #
-        # # def test_check_in_guest_to_room()
-        # #   check_in_guest = "Tom"
-        #   @room.guest_in(check_in_guest)
-        #   assert_equal(4, @room.guests.size())
-        # end
+
         #
         # def test_check_out_guest_to_room()
         #   check_out_guest = "Phil"
@@ -114,9 +140,3 @@ class TestRoom < MiniTest::Test
         #   assert_equal("Michael Carlyle is in Rock room", @room.check_in)
         # end
         #
-
-
-
-
-
-      end
