@@ -1,12 +1,24 @@
 class Guest
 
-  attr_reader :name, :surname, :age
+  attr_reader :info
 
-  def initialize(name, surname, age)
-    @name = name
-    @surname = surname
-    @age = age
+  def initialize(info)
+  @info = info
   end
+
+
+
+  # def find_by_title(title)
+  #   songs.select {|song| song[:title] == title}
+  # end
+  #
+  # def find_by_title(title)
+  #   songs.select {|song| song[:title] == title}
+  # end
+  #
+  # def find_by_title(title)
+  #   songs.select {|song| song[:title] == title}
+  # end
 
 
 end

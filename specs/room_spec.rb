@@ -7,8 +7,11 @@ require_relative("../song.rb")
 class TestRoom < MiniTest::Test
 
   def setup
-    @song = Song.new("Blackened", "Metallica")
-    playllist = []
+    @song = Song.new{
+      title: "The bard song",
+      artist: "Blind Guardian"
+    }
+    playlist = []
     @guest1 = Guest.new("Stewie", "Wonder", 26)
     guests = ["Phil", "Craig", "Mike"]
     @room1 = Room.new("Classic", [], [])
@@ -45,12 +48,12 @@ class TestRoom < MiniTest::Test
   end
 
 
-  # def test_can_add_song()
-  #   @playlist.add_song("Blackened", "Metallica")
-  #   assert_equal({title: "Blackened", author: "Metallica"}, @playlilst.find_song("Blackened", "Metallica"))
-  #   all_songs = @playlist.songs()
-  #   assert_equal(1, all_songs.size())
-  # end
+  def test_can_add_song()
+    @playlist.add_song("Blackened", "Metallica")
+    assert_equal({title: "Blackened", author: "Metallica"}, @playlilst.find_song("Blackened", "Metallica"))
+    all_songs = @playlist.songs()
+    assert_equal(1, all_songs.size())
+  end
 
 
 
