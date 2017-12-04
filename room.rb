@@ -5,9 +5,9 @@ class Room
   def initialize(genre, guests, playlist)
 
     @genre = genre
-    @guests = guests
+    @guests = guests || []
     @playlist = playlist || []
-  
+
 
   end
   #

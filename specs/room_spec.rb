@@ -36,13 +36,19 @@ class TestRoom < MiniTest::Test
         surname: "Orton",
         age: 29 }]
       @room = Room.new("Rock", guests, playlist)
-        end
+  end
 
+  def test_room_has_a_name()
+    assert_equal("Rock", @room.genre())
+  end
 
-        def test_room_has_a_name()
-          assert_equal("Rock", @room.genre())
-        end
+  def test_room_has_guests()
+      assert_equal(3, @room.guests.size)
+  end
 
+  def test_room_has_songs()
+      assert_equal(3, @room.playlist.size)
+  end
         # def test_room_has_songs()
         #   assert_equal(0, @room.playlist.length())
         # end
