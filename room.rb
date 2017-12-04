@@ -6,17 +6,18 @@ class Room
 
     @genre = genre
     @guests = guests
-    @playlist = playlist
+    @playlist = playlist || []
+  
 
   end
-
-  def guest_in(check_in_guest)
-    @guests << check_in_guest
-  end
-
-  def guest_out(check_out_guest)
-    @guests.delete(check_out_guest)
-  end
+  #
+  # def guest_in(check_in_guest)
+  #   @guests << check_in_guest
+  # end
+  #
+  # def guest_out(check_out_guest)
+  #   @guests.delete(check_out_guest)
+  # end
 
 
 
